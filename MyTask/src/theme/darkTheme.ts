@@ -4,11 +4,12 @@ const darkTheme = {
   ...MD3DarkTheme,
   colors: {
     ...MD3DarkTheme.colors,
-    primary: '#bb86fc',
+    primary: '#1877F2',
     accent: '#03dac6',
     background: '#121212',
     surface: '#121212',
-    text: '#ffffff',
+    textColor: '#ffffff',
+    white: '#ffffff',
     // Customize more colors here
   },
   // Customize more theme properties here
