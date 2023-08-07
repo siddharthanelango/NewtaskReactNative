@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
 
 import React from 'react';
 import type { PropsWithChildren } from 'react';
@@ -19,46 +13,28 @@ import {
   Button,
 } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-
-// import { Button } from 'react-native-paper';
-
-import { Colors, Header } from 'react-native/Libraries/NewAppScreen';
-import { ThemeProvider, useTheme } from './providers/ThemeProvider';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({ children, title }: SectionProps): JSX.Element {
-  const { theme, toggleTheme } = useTheme();
-  return (
-    <View style={{ backgroundColor: theme.colors.background }}>
-      <View style={{flexDirection: 'row',justifyContent:'center',alignItems:'center'}}>
-           <Icon name="account" color={Colors.primary} size={24} />
-           <Text style={{ color: theme.colors.textColor }}>Hello, World!</Text>
-      </View>
-
-      <Button onPress={toggleTheme} title={'Sign'} />
-    </View>
-  );
-}
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { ThemeProvider } from './providers/ThemeProvider';
+import PhotoGrid from './screens/Griding';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+
   };
   return (
         <ThemeProvider>
-          <SafeAreaView style={backgroundStyle}>
+          <SafeAreaView style={{...backgroundStyle,flex:1}}>
             <View
               style={{
+                flex:1,
                 backgroundColor: isDarkMode ? Colors.black : Colors.white,
               }}
             >
-              <Section title="Toggle theme" />
-   
+      
+            <PhotoGrid/>
             </View>
           </SafeAreaView>
         </ThemeProvider>
